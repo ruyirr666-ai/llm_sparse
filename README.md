@@ -40,12 +40,6 @@ At a high level, the repository is organized as follows:
   - `loader.py`: helpers for resolving model paths or Hub IDs (download handled by `transformers`).
   - `utils.py`: utilities for saving checkpoints and related artifacts.
 
-- **`figs/`**  
-  Figures used in the paper’s case study section:
-  - `offline_case.png`
-  - `offline_case2.png`
-  - `online_case.png`
-
 
 ## 2. Case study
 
