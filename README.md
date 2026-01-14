@@ -16,11 +16,9 @@ At a high level, the repository is organized as follows:
 
 - **`main.py`**  
   Entry point for training and inference. It wires together configuration, model construction, data loading, loss definition, and training/evaluation loops.  
-  - `mode=train`: launches distributed training.  
-  - `mode=infer`: runs distributed inference and exports sparse representations.
 
 - **`conf/config.yaml`**  
-  A reference configuration file that defines model hyperparameters, training schedule, regularization (e.g., FLOPS regularizer), and test-time settings. This file is meant as a **template**; real production configs in our system contain additional internal fields that are not included here.
+  A reference configuration file that defines model hyperparameters, training schedule, regularization (e.g., FLOPS regularizer), and test-time settings. This file is meant as a template; real production configs in our system contain additional internal fields that are not included here.
 
 - **`model/`**  
   Core modeling and training components:
