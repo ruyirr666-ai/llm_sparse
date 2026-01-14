@@ -1,8 +1,8 @@
-PROSPER: a framework for PROduct search using LLMs as SParsE Retrievers
+## **PROSPER: a framework for PROduct search using LLMs as SParsE Retrievers**
 
 ## 1. Overview
 
-This repository contains the (anonymized) code accompanying the paper:
+This repository contains the code accompanying the paper:
 
 > **“LLMs as Sparse Retrievers: A Framework for First-Stage Product Search”**
 
@@ -113,6 +113,3 @@ After the paper is accepted, we plan to:
 
 - Release an **expanded open-source version** that reconstructs a complete, end-to-end dataflow based on **publicly available datasets and open-source tooling**, without any dependency on proprietary infrastructure.  
 - Provide **additional documentation and scripts** to facilitate reproducing the main experimental findings under non-proprietary settings.
-
-If you have questions about adapting PROSPER to your own environment or about any specific part of this anonymized implementation, please refer to the paper or contact the authors through the official channels provided in the submission.
-
