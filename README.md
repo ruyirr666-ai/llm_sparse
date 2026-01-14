@@ -47,7 +47,7 @@ In this section, we present both offline and online case studies to demonstrate 
 
 ### 2.1 Offline case study
 
-To provide concrete insights into how PROSPER optimizes term expansion and weighting, we present detailed case studies showcasing the optimization results for the two examples mentioned in the preliminary section. The following figure demonstrates the before-and-after term expansion and weighting patterns for "爱立舍机油滤芯" (Elysee oil filter) and "老捷豹副水箱" (Old Jaguar water tank). The figure illustrates how PROSPER effectively reduces lexical expansion hallucination while maintaining useful semantic expansions, leading to more focused and relevant term representations.
+To provide concrete insights into how PROSPER optimizes term expansion and weighting, we present detailed case studies showcasing the optimization results for the two examples mentioned in the preliminary section. The following figure demonstrates the before-and-after term expansion and weighting patterns for "爱立舍机油滤芯" (Elysee oil filter) and "老捷豹副水箱" (Old Jaguar water tank). The Figure 1 illustrates how PROSPER effectively reduces lexical expansion hallucination while maintaining useful semantic expansions, leading to more focused and relevant term representations.
 
 **Figure 1: Case study of term expansion and weighting optimization by SP_Qwen-backbone and PROSPER**
 
@@ -55,7 +55,7 @@ To provide concrete insights into how PROSPER optimizes term expansion and weigh
 
 *The table shows the top-weighted terms before and after optimization for two representative product search queries. Terms are ranked by weight in descending order. Literal terms are shown in black, useful expansions in green, and noisy expansions in red.*
 
-In addition, the following figure also shows more offline cases.
+In addition, the following Figure 2 also shows more offline cases.
 
 **Figure 2: More offline query and item cases of PROSPER**
 
@@ -73,7 +73,7 @@ Our online case analysis focuses on products exclusively recalled by PROSPER, hi
 
 *The left column shows products exclusively recalled by PROSPER ("recall_types" = 128), while the right column shows products for the same queries recalled by other channels. The "rnr" score indicates the relevance level.*
 
-As illustrated by the cases in the figure above, even for common queries where other channels already demonstrate strong recall performance, they can still fail to retrieve some relevant products. PROSPER effectively addresses this gap by recalling these missing items. This ensures that the initial retrieval stage more comprehensively meets user needs, thereby enhancing the performance of the Taobao search engine and contributing to incremental online revenue for the platform.
+As illustrated by the cases in the Figure 3 above, even for common queries where other channels already demonstrate strong recall performance, they can still fail to retrieve some relevant products. PROSPER effectively addresses this gap by recalling these missing items. This ensures that the initial retrieval stage more comprehensively meets user needs, thereby enhancing the performance of the Taobao search engine and contributing to incremental online revenue for the platform.
 
 
 ## 3. Necessary Statement
