@@ -6,9 +6,9 @@ This repository contains the code accompanying the paper:
 
 > **“LLMs as Sparse Retrievers: A Framework for First-Stage Product Search”**
 
-PROSPER is a practical framework that leverages large language models (LLMs) as **sparse retrievers** for first-stage product search. It focuses on learning term-level expansions and weights and can be plugged into existing inverted-index based retrieval systems.
+PROSPER is a practical framework that leverages large language models (LLMs) as **sparse retrievers** for first-stage product search. 
 
-The code in this repository is a **research / review version** of the internal production system: all company-specific dataflows, pipelines, and serving infrastructure have been removed or abstracted away to protect privacy.
+The code in this repository is a **review version** : all production-specific dataflows, pipelines, and serving infrastructure have been removed or abstracted away to protect privacy.
 
 ### Repository structure
 
@@ -82,33 +82,11 @@ Our online case analysis focuses on products exclusively recalled by PROSPER, hi
 As illustrated by the cases in the figure above, even for common queries where other channels already demonstrate strong recall performance, they can still fail to retrieve some relevant products. PROSPER effectively addresses this gap by recalling these missing items. This ensures that the initial retrieval stage more comprehensively meets user needs, thereby enhancing the performance of the Taobao search engine and contributing to incremental online revenue for the platform.
 
 
-## 3. Privacy, dataflow, and limitations of this release
+## 3. Necessary Statement
 
 The **full production deployment** of PROSPER is deeply integrated with internal data pipelines, logging systems, and serving infrastructure. These components necessarily operate on **proprietary user and item data** and interact with internal services that cannot be exposed.
 
-To comply with company privacy and data-protection requirements, this repository:
-
-- **Removes all direct connections to internal data sources and sinks.**  
-  - Components such as large-scale distributed datasets, internal table readers/writers, and object-storage-based checkpoint management are replaced by placeholders that raise runtime errors if invoked.  
-  - Users wishing to run PROSPER end-to-end must plug in their own data loading, storage, and serving layers.
-
-- **Does not include any real queries, items, user logs, or business-sensitive metadata.**  
-  - All case studies and examples are presented at an abstracted or schematic level.  
-  - Detailed internal configurations, feature definitions, and monitoring/alerting logic are omitted.
-
-- **Avoids exposing internal system identifiers.**  
-  - Where relevant, we describe fields (such as bitmask indicators and relevance scores) conceptually rather than literally.
-
-As a result, this repository should be viewed as a **structural and algorithmic reference implementation** of PROSPER rather than a drop-in replica of the internal production stack.
-
-
-## 4. Scope and availability
-
-This repository is provided **solely for the purpose of peer review and academic reproducibility during the paper evaluation phase**. In particular:
-
-- It is intended for **reviewers and researchers** to inspect the model architecture, loss design, sparsity regularization, and training/inference logic described in the paper.  
-- It is **not** a fully plug-and-play system: real-world deployment requires integrating with your own data sources, indexing infrastructure, and serving environment.
-
+This repository is provided **solely for the purpose of peer review and academic reproducibility during the paper evaluation phase**. 
 After the paper is accepted, we plan to:
 
 - Release an **expanded open-source version** that reconstructs a complete, end-to-end dataflow based on **publicly available datasets and open-source tooling**, without any dependency on proprietary infrastructure.  
