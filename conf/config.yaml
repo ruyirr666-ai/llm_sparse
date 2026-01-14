@@ -1,0 +1,109 @@
+# --- train ---
+checkpoint_dir: trained_models
+
+init_dict:
+  model_type_or_dir: 
+  model_type_or_dir_q: null
+  freeze_d_model: 0
+  agg: last
+  model_type: qwen
+  torch_dtype: bfloat16
+    out_hidden: True
+  hidden_process: True
+  hidden_agg: last
+
+  use_bidirectional_attention: False 
+
+  use_dual_pass_concat: False 
+
+no_q_weight: False
+no_q_expansion: False
+no_d_expansion: False
+
+
+expansion_only_q: False  
+expansion_only_d: False  
+
+
+q_dim_reduce: 256
+d_dim_reduce: 512
+
+
+dynamic_dim_reduce: False      
+q_dim_stages: [128, 256, 512]    
+d_dim_stages: [256, 512, 1024]   
+convergence_ratio: 0.8           
+patience: 10                     
+
+
+q_out_hidden: True       
+q_add_comp_logit: True    
+
+
+d_add_comp_logit: True  
+d_out_hidden: True 
+
+num_training_steps: 80000
+record_freq: 5000          
+train_data_type: p_data
+train_mode: qw_pairs
+train_batch_size: 64
+
+loss: InBatchPairwiseNLL
+in_batch_mode: True
+q_normalize_score: l2 
+d_normalize_score: false  
+
+
+self_normalize: false      
+
+use_bm25_supervision: false   
+bm25_normalize: false         
+
+self_score_mode: "d_rep"       
+d_self_weight: 1
+d_self_score: false
+
+
+use_ui_loss: false        
+ui_weight: 0.1         
+
+
+use_hard_negatives: false  
+
+model_class: SiameseBase
+max_length: 128  
+random_seed: 333
+lr: 3e-5
+warmup_steps: 80            
+weight_decay: 0.1
+
+
+regularizer:
+  FLOPS:
+    lambda_q: 5e-3  
+    lambda_d: 1e-3
+    T: 400           
+    reg: FLOPS
+    targeted_rep: rep_raw
+
+#monitoring_ckpt: [ loss, auc ]
+gradient_accumulation_steps: 1
+fp16: false
+
+
+# --- val ---
+#val_while_training: True
+val_data_type: pn_data
+val_mode: qw_pairs
+val_batch_size: 128
+
+# --- test ---
+write_table_while_test: True
+test_ckpt: model_ckpt
+online_infer: True
+test_data_type: only_one
+test_mode: only_one
+test_batch_size: 256
+test_d: True
+save_topk: 256
