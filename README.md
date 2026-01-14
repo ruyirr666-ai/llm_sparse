@@ -80,8 +80,6 @@ As illustrated by the cases in the Figure 3 above, even for common queries where
 
 The **full production deployment** of PROSPER is deeply integrated with internal data pipelines, logging systems, and serving infrastructure. These components necessarily operate on **proprietary user and item data** and interact with internal services that cannot be exposed.
 
-This repository is provided **solely for the purpose of peer review and academic reproducibility during the paper evaluation phase**. 
-After the paper is accepted, we plan to:
+This repository is provided **solely for the purpose of peer review**. 
+After the paper is accepted, we will release an **expanded open-source version** that reconstructs a complete, end-to-end dataflow based on **publicly available datasets and open-source tooling**, without any dependency on proprietary infrastructure.  
 
-- Release an **expanded open-source version** that reconstructs a complete, end-to-end dataflow based on **publicly available datasets and open-source tooling**, without any dependency on proprietary infrastructure.  
-- Provide **additional documentation and scripts** to facilitate reproducing the main experimental findings under non-proprietary settings.
