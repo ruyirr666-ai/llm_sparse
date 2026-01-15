@@ -4,7 +4,7 @@
 
 This repository contains the code accompanying the paper:
 
-> **“LLMs as Sparse Retrievers: A Framework for First-Stage Product Search”**
+> **“PROSPER: LLMs as Sparse Retrievers for First-Stage Product Search”**
 
 PROSPER is a practical framework that leverages large language models (LLMs) as **sparse retrievers** for first-stage product search. 
 
@@ -41,7 +41,7 @@ At a high level, the repository is organized as follows:
 
 ## 2. Case study
 
-In this section, we present both offline and online case studies to demonstrate the effectiveness of PROSPER in real world scenarios. The offline case study analyzes the term expansion and weighting optimization results, while the online case study examines the exclusive recall results found in the multi-channel retrieval system in Taobao search.
+In this section, we present both offline and online case studies to demonstrate the effectiveness of PROSPER in real world scenarios. The offline case study analyzes the term expansion and weighting optimization results, while the online case study examines the exclusive recall results found in the multi-channel retrieval system in  real-world search engine.
 
 ### 2.1 Offline case study
 
@@ -63,15 +63,15 @@ In addition, the following Figure 2 also shows more offline cases.
 
 ### 2.2 Online case study
 
-Our online case analysis focuses on products exclusively recalled by PROSPER, highlighting its unique contribution to the overall search performance. In this system, each retrieval channel is assigned a unique identifier, and PROSPER is designated as the eighth channel (with index 7). The retrieval source for each product is tracked using a bitmask called "recall_types". A "recall_types" value of 2^7=128 indicates that the product was recalled solely by PROSPER. The relevance of recalled items is assessed by a Taobao internal query-item relevance model, which assigns a "rnr" score: 2 for highly relevant, 1 for relevant, and 0 for irrelevant. As shown in the following figure, both "recall_types" and "rnr" are annotated within the green box below each product in the table. In practice, for each user query, there are multiple exclusive recall results by PROSPER as well as numerous multi-channel recall results. For convenience, in the table, we present one exclusive recall result by PROSPER and two recall results from other channels for each example query.
+Our online case analysis focuses on products exclusively recalled by PROSPER, highlighting its unique contribution to the overall search performance. In this system, each retrieval channel is assigned a unique identifier, and PROSPER is designated as the eighth channel (with index 7). The retrieval source for each product is tracked using a bitmask called "recall_types". A "recall_types" value of 2^7=128 indicates that the product was recalled solely by PROSPER. The relevance of recalled items is assessed by our internal query-item relevance model, which assigns a "rnr" score: 2 for highly relevant, 1 for relevant, and 0 for irrelevant. As shown in the following figure, both "recall_types" and "rnr" are annotated within the green box below each product in the table. In practice, for each user query, there are multiple exclusive recall results by PROSPER as well as numerous multi-channel recall results. For convenience, in the table, we present one exclusive recall result by PROSPER and two recall results from other channels for each example query.
 
-**Figure 3: Online case study of exclusive product recalls by PROSPER in Taobao's hybrid retrieval system**
+**Figure 3: Online case study of exclusive product recalls by PROSPER in our hybrid retrieval system**
 
-![Online case study of exclusive product recalls by PROSPER in Taobao's hybrid retrieval system](figs/online_case.png)
+![Online case study of exclusive product recalls by PROSPER in our hybrid retrieval system](figs/online_case.png)
 
 *The left column shows products exclusively recalled by PROSPER ("recall_types" = 128), while the right column shows products for the same queries recalled by other channels. The "rnr" score indicates the relevance level.*
 
-As illustrated by the cases in the Figure 3 above, even for common queries where other channels already demonstrate strong recall performance, they can still fail to retrieve some relevant products. PROSPER effectively addresses this gap by recalling these missing items. This ensures that the initial retrieval stage more comprehensively meets user needs, thereby enhancing the performance of the Taobao search engine and contributing to incremental online revenue for the platform.
+As illustrated by the cases in the Figure 3 above, even for common queries where other channels already demonstrate strong recall performance, they can still fail to retrieve some relevant products. PROSPER effectively addresses this gap by recalling these missing items. This ensures that the initial retrieval stage more comprehensively meets user needs, thereby enhancing the performance of our search engine system and contributing to incremental online revenue for the platform.
 
 
 ## 3. Necessary Statement
